@@ -7,7 +7,7 @@
                 <div class="card-header ">
                     <div class="row">
                         <div class="col-sm-6 text-left">
-                            <h2 class="card-title">CRIAÇÃO DE EVENTO</h2>
+                            <h2 class="card-title">CRIAÇÃO DE NOTÍCIAS</h2>
                             <form action="{{route('Feed.store')}}" method="post">
                                     @csrf
                                 <div class="form-group">
@@ -18,11 +18,6 @@
                                     <label for="description">Texto</label>
                                     <textarea name="description" class="form-control" id="description" rows="3" placeholder="Texto da matéria"></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label for="date">Data do evento</label>
-                                    <input type="date" name="event_date" class="form-control" id="date"  placeholder="tema">
-                                </div>
-                            
                                 <button type="submit" class="btn btn-info">enviar</button>
                                 <a href="/Feed" type="submit" class="btn btn-danger">cancelar</a>
                             </form>

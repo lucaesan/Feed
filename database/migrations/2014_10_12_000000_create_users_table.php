@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 return new class extends Migration
 {
@@ -20,9 +22,21 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();
+            $table->boolean('super_user')->default(false);
             $table->timestamps();
         });
+
+        // Create a super user
+        DB::table('users')->insert([
+        'name' => 'Admin User',
+        'email' => 'admin@admin.com',
+        'password' => Hash::make('Admin123'),
+        'super_user' => true,
+        'created_at' => now(),
+        'updated_at' => now(),
+    ]);
     }
+
 
     /**
      * Reverse the migrations.

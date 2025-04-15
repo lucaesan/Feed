@@ -9,12 +9,8 @@ class Feed extends Model
 {
     use HasFactory;
     
-    protected $fillable = ['title', 'description', 'event_date', 'user_id'];
-    
-    protected $casts = [
-        'event_date' => 'datetime'
-    ];
-    
+    protected $fillable = ['title', 'description', 'user_id'];
+       
     public function user()
     {
         return $this->belongsTo(User::class);

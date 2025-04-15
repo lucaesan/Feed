@@ -19,11 +19,6 @@
                                     <label for="description">Descrição</label>
                                     <textarea name="description" class="form-control" id="description" rows="3" placeholder="Descrição">{{$item->description}}</textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label for="date">Data do evento</label>
-                                    <input type="date" name="event_date" value="{{$item->event_date}}" class="form-control" id="date"  placeholder="tema">
-                                </div>
-                            
                                 <button type="submit" class="btn btn-info">enviar</button>
                                 <a href="/Feed" type="submit" class="btn btn-danger">cancelar</a>
                             </form>

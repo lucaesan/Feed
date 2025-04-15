@@ -52,7 +52,9 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'super_user' => isset($data['super_user']) ? (bool) $data['super_user'] : false,
             'agree_terms_and_conditions' => ['required'],
+            
         ]);
     }
 
