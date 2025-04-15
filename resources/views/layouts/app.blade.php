@@ -17,8 +17,8 @@
         <!-- Icons -->
         <link href="{{ asset('white') }}/css/nucleo-icons.css" rel="stylesheet" />
         <!-- CSS -->
-        <link href="{{ asset('white') }}/css/white-dashboard.css?v=1.0.0" rel="stylesheet" />
-        <link href="{{ asset('white') }}/css/theme.css" rel="stylesheet" />
+        <link href="{{ mix('css/white-dashboard.css') }}" rel="stylesheet" />
+        <link href="{{ mix('css/theme.css') }}" rel="stylesheet" />
     </head>
     <body class="white-content {{ $class ?? '' }}">
         @auth()
@@ -52,20 +52,19 @@
         @endauth
         
         </div>
-        <script src="{{ asset('white') }}/js/core/jquery.min.js"></script>
-        <script src="{{ asset('white') }}/js/core/popper.min.js"></script>
-        <script src="{{ asset('white') }}/js/core/bootstrap.min.js"></script>
-        <script src="{{ asset('white') }}/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+        <script src="{{ mix('js/core/jquery.min.js') }}"></script>
+        <script src="{{ mix('js/core/popper.min.js') }}"></script>
+        <script src="{{ mix('js/core/bootstrap.min.js') }}"></script>
+        <script src="{{ mix('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
         <!--  Google Maps Plugin    -->
         <!-- Place this tag in your head or just before your close body tag. -->
         {{-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> --}}
         <!-- Chart JS -->
         {{-- <script src="{{ asset('white') }}/js/plugins/chartjs.min.js"></script> --}}
         <!--  Notifications Plugin    -->
-        <script src="{{ asset('white') }}/js/plugins/bootstrap-notify.js"></script>
-
-        <script src="{{ asset('white') }}/js/white-dashboard.min.js?v=1.0.0"></script>
-        <script src="{{ asset('white') }}/js/theme.js"></script>
+        <script src="{{ mix('js/plugins/bootstrap-notify.js') }}"></script>
+        <script src="{{ mix('js/white-dashboard.min.js') }}"></script>
+        <script src="{{ mix('js/theme.js') }}"></script>
 
         @stack('js')
 
