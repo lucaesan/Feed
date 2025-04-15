@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Feed;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class FeedController extends Controller
 {
@@ -14,10 +15,12 @@ class FeedController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $data = Feed::orderBy('id')->get();
-        return view('layouts.Feed.index',compact('data'));
-    }
+{
+    $userId = auth()->id(); // pega o ID do usuário autenticado
+    $data = Feed::where('user_id', $userId)->orderBy('id')->get();
+    
+    return view('layouts.Feed.index', compact('data'));
+}
 
     /**
      * Show the form for creating a new resource.
@@ -37,7 +40,8 @@ class FeedController extends Controller
      */
     public function store(Request $request)
     {
-        Feed::create(['title'=>$request->title, 'description'=>$request->description, 'event_date'=>$request->event_date]);
+        
+        Feed::create(['title'=>$request->title, 'description'=>$request->description, 'event_date'=>$request->event_date,'user_id' => auth()->id()]);
 
         return redirect()->route('Feed.index');
     }

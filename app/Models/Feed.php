@@ -7,7 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Feed extends Model
 {
-    protected $fillable = ['title','description','event_date'];
-    protected $casts = ['event_date' => 'datetime'];
     use HasFactory;
+    
+    protected $fillable = ['title', 'description', 'event_date', 'user_id'];
+    
+    protected $casts = [
+        'event_date' => 'datetime'
+    ];
+    
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -15,12 +15,12 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * redirect home to Feed. just works :)
      *
      * @return \Illuminate\View\View
      */
     public function index()
     {
-        return view('dashboard');
+        return redirect()->route('Feed.index');
     }
 }
